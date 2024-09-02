@@ -1,0 +1,149 @@
+<div class="card">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Total Earning</th>
+            <th>Total Piecerate (A)</th>
+            <th>Total Dailypay</th>
+            <th>Effiency = (A - B)</th>
+            <th colspan="2">In date & Time</th>
+            <th colspan="2">Out Date & Time</th>
+            <th>Shift</th>
+            <th>Section</th>
+            <th>Basic Salary</th>
+            <th>Incentive</th>
+            <th>O/T</th>
+            <th>Activity</th>
+            <th>OPHP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let empData of employeesData">
+            <ng-container *ngFor="let section of empData.Sections; let secIndex = index">
+              <ng-container *ngFor="let act of section.activities; let actIndex = index">
+                <tr>
+                  <td *ngIf="secIndex === 0 && actIndex === 0" [rowSpan]="getTotalActivities(empData.Sections)">
+                    {{ empData.Date }}
+                  </td>
+                  <td *ngIf="secIndex === 0 && actIndex === 0" [rowSpan]="getTotalActivities(empData.Sections)">
+                    {{ empData.TotalEarning }}
+                  </td>
+                  <td *ngIf="secIndex === 0 && actIndex === 0" [rowSpan]="getTotalActivities(empData.Sections)">
+                    {{ empData.TotalPiecerate }}
+                  </td>
+                  <td *ngIf="secIndex === 0 && actIndex === 0" [rowSpan]="getTotalActivities(empData.Sections)">
+                    {{ empData.TotalDailypay }}
+                  </td>
+                  <td *ngIf="secIndex === 0 && actIndex === 0" [rowSpan]="getTotalActivities(empData.Sections)">
+                    {{ empData.Effiency }}
+                  </td>
+
+                  <!-- Section-specific data -->
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.InDate }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.InTime }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.OutDate }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.OutTime }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.Shift }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.Section }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.BasicSalary }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.Incentive }}</td>
+                  <td *ngIf="actIndex === 0" [rowSpan]="section.activities.length">{{ section.OT }}</td>
+
+                  <!-- Activity-specific data -->
+                  <td>{{ act.activity }}</td>
+                  <td>{{ act.ophp }}</td>
+                </tr>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
